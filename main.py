@@ -1,4 +1,5 @@
-from login.autenticar import cadastrar_usuario, login
+from login.autenticar import login
+from login.cadastrar import cadastrar_usuario
 
 print('\n Bem-vindo ao Sistema da Clínica Médica \n')
 
