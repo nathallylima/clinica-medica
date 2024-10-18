@@ -1,0 +1,113 @@
+lista_funcionarios = []
+
+def cadastrar_funcionario():
+    while True:
+        try:
+            id = len(lista_funcionarios)  
+            nome = input("Digite o nome do funcionário: ")
+            cargo = input("Digite o cargo do funcionário: ")
+            telefone = int(input("Digite o telefone do funcionário: "))
+            salario = float(input("Digite o salário do funcionário: "))
+            escolaridade = input("Digite a escolaridade do funcionário: ")
+
+            funcionario = {
+                "id": id,  
+                "nome": nome,
+                "cargo": cargo,
+                "telefone": telefone,
+                "salário": salario,
+                "escolaridade": escolaridade
+            }
+
+            lista_funcionarios.append(funcionario)
+            print(f"{nome} cadastrado com sucesso!")  
+
+        except ValueError:
+            print('Digite um valor válido. Apenas números para telefone e salário.')
+            continue  
+
+        while True:
+            opcao = input("Deseja adicionar outro funcionário? (Sim/Não) \n").lower()
+
+            if opcao == 'sim':
+                break
+            elif opcao == 'não':
+                return
+            else:
+                print('Opção inválida.')
+
+
+def listar_funcionario():
+    print()
+    print('Funcionários Cadastrados:')
+    
+    if not lista_funcionarios:
+        print("Nenhum funcionário cadastrado")
+    else:
+        for funcionario in lista_funcionarios: 
+            print(f"ID: {funcionario['id']}, Nome: {funcionario['nome']}, "
+                  f"Cargo: {funcionario['cargo']}, Telefone: {funcionario['telefone']}, "
+                  f"Salário: {funcionario['salário']}, Escolaridade: {funcionario['escolaridade']}")
+
+
+def editar_funcionario():
+    listar_funcionario()
+
+    if not lista_funcionarios:
+        return
+    try:
+        id_editar = int(input('\nDigite o ID do funcionário que deseja editar: '))
+    except ValueError:
+        print('Insira um ID válido.')
+        return
+    
+    for funcionario in lista_funcionarios:
+        if funcionario['id'] == id_editar:  
+            print(f"Funcionário encontrado: ID: {funcionario['id']}, Nome: {funcionario['nome']}")
+            
+            opcoes = ['nome', 'cargo', 'telefone', 'salário', 'escolaridade']
+
+            while True:
+                opcao = input('Informe o que você deseja editar: '
+                              '(nome, cargo, telefone, salário, escolaridade)\n').lower()
+                
+                if opcao in opcoes:
+                    if opcao in ['telefone', 'salário']:
+                        try:
+                            alteracao = int(input(f"Digite o novo {opcao}: "))
+                        except ValueError:
+                            print(f"O valor para {opcao} deve ser numérico.")
+                            continue
+                        funcionario[opcao] = alteracao
+                    else:
+                        alteracao = input(f"Digite o novo {opcao}: ")
+                        funcionario[opcao] = alteracao
+                    print(f"{opcao.capitalize()} atualizado com sucesso!")
+                    return 
+                else:
+                    print('Informe uma opção válida.')
+                    continue 
+                
+    print(f'Funcionário com ID {id_editar} não encontrado.')
+
+
+def excluir_funcionario():
+    listar_funcionario()
+
+    if not lista_funcionarios:
+        return
+    
+    try:
+        id_excluir = int(input("Digite o ID do funcionário que deseja excluir: "))
+        
+        for funcionario in lista_funcionarios:
+            if funcionario['id'] == id_excluir:
+                lista_funcionarios.remove(funcionario)
+                print(f'Funcionário com ID {id_excluir} foi removido.')
+                break
+        else:
+            print(f'Funcionário com ID {id_excluir} não encontrado.')
+
+    except ValueError:
+        print('Digite um número válido para o ID.')
+
