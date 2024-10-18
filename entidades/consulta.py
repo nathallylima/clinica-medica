@@ -1,15 +1,9 @@
 from .funcionario import lista_funcionarios
 from .medico import lista_medicos
 from .paciente import lista_pacientes
+from .verificar_id.verificar_id import verificar_id
 
 lista_consultas = []
-
-def verificar_id(lista, id_procurado, tipo):
-    for item in lista:
-        if item['id'] == id_procurado:
-            return True
-    print(f'{tipo.capitalize()} com ID {id_procurado} não encontrado.')
-    return False
 
 def cadastrar_consulta():
     while True:
@@ -36,27 +30,27 @@ def cadastrar_consulta():
             id_paciente = int(id_paciente)
             if not verificar_id(lista_pacientes, id_paciente, "paciente"):
                 continue
-
-            tipo = input('Digite o tipo da consulta: ')
-            observacoes = input('Digite as observações da consulta: ')
-            data = input('Digite a data da consulta (dd/mm/aaaa): ')
-            
-            consulta = {
-                "id_consulta": id_consulta,
-                "id_funcionario": id_funcionario,
-                "id_medico": id_medico,
-                "id_paciente": id_paciente,
-                "tipo": tipo,
-                "observações": observacoes,
-                "data": data
-            }
-
-            lista_consultas.append(consulta)
-            print(f'Consulta {id_consulta} cadastrada com sucesso!')
-
         except ValueError:
-            print('Erro: Digite apenas números para IDs.')
+            print('Erro: Digite apenas números para os IDs (funcinário, médico e paciente.)')
             continue
+
+
+        tipo = input('Digite o tipo da consulta: ')
+        observacoes = input('Digite as observações da consulta: ')
+        data = input('Digite a data da consulta (dd/mm/aaaa): ')
+
+        consulta = {
+            "id_consulta": id_consulta,
+            "id_funcionario": id_funcionario,
+            "id_medico": id_medico,
+            "id_paciente": id_paciente,
+            "tipo": tipo,
+            "observações": observacoes,
+            "data": data
+        }
+
+        lista_consultas.append(consulta)
+        print(f'Consulta {id_consulta} cadastrada com sucesso!')
 
         while True:
             opcao = input("Deseja adicionar outra consulta? (Sim/Não) \n").lower()
