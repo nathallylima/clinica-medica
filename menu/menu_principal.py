@@ -2,6 +2,7 @@ from gerenciadores.gerenciador_funcionario import menu_funcionario
 from gerenciadores.gerenciador_medico import menu_medico
 from gerenciadores.gerenciador_paciente import menu_paciente
 from gerenciadores.gerenciador_consulta import menu_consulta
+from main import menu_login
 
 print('GERENCIADOR CLÍNICA MÉDICA')
 
@@ -27,7 +28,6 @@ def gerenciar_menu():
             elif opc == 4:
                 menu_consulta()
             elif opc == 5:
-                from main import menu_login
                 menu_login()
             elif opc == 6:
                 print('Encerrando o programa...')
