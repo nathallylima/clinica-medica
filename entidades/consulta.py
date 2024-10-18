@@ -34,7 +34,6 @@ def cadastrar_consulta():
             print('Erro: Digite apenas números para os IDs (funcinário, médico e paciente.)')
             continue
 
-
         tipo = input('Digite o tipo da consulta: ')
         observacoes = input('Digite as observações da consulta: ')
         data = input('Digite a data da consulta (dd/mm/aaaa): ')

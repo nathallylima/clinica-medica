@@ -1,6 +1,5 @@
 usuarios = {'admin': 'admin123'}
 
-
 def cadastrar_usuario():
     while True:
         usuario = input('\nDigite o nome de usuário que deseja cadastrar (ou "sair" para cancelar): ').lower()
