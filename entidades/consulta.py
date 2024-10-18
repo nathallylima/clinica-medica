@@ -4,61 +4,43 @@ from .paciente import lista_pacientes
 
 lista_consultas = []
 
+def verificar_id(lista, id_procurado, tipo):
+    for item in lista:
+        if item['id'] == id_procurado:
+            return True
+    print(f'{tipo.capitalize()} com ID {id_procurado} não encontrado.')
+    return False
+
 def cadastrar_consulta():
     while True:
         id_consulta = len(lista_consultas)
 
         try:
-            id_funcionario = input('Informe ID do funcionário que marcou a consulta ou "sair" para voltar ao menu: ')
-            
+            id_funcionario = input('Informe ID do funcionário ou "sair" para voltar ao menu: ')
             if id_funcionario.lower() == 'sair':
                 return
             id_funcionario = int(id_funcionario)
-
-            funcionario = False
-
-            for i in lista_funcionarios:
-                if i['id'] == id_funcionario:
-                    funcionario = True
-                    break
-            if not funcionario:
-                print(f'Funcionário com ID {id_funcionario} não encontrado')
+            if not verificar_id(lista_funcionarios, id_funcionario, "funcionário"):
                 continue
 
-            id_medico = input('Informe o ID do médico "sair" para voltar ao menu: ')
+            id_medico = input('Informe o ID do médico ou "sair" para voltar ao menu: ')
             if id_medico.lower() == 'sair':
                 return
-            id_medico = int(id_medico) 
-
-            medico = False
-
-            for i in lista_medicos:
-                if i['id'] == id_medico:
-                    medico = True
-                    break
-            if not medico:
-                print(f'Médico com ID {id_medico} não encontrado')
+            id_medico = int(id_medico)
+            if not verificar_id(lista_medicos, id_medico, "médico"):
                 continue
 
             id_paciente = input('Informe o ID do paciente ou "sair" para voltar ao menu: ')
             if id_paciente.lower() == 'sair':
                 return
-            id_paciente = int(id_paciente)  
-
-            paciente = False
-
-            for i in lista_pacientes:
-                if i['id'] == id_paciente:
-                    paciente = True
-                    break
-            if not paciente:
-                print(f'Paciente com ID {id_paciente} não encontrado')
+            id_paciente = int(id_paciente)
+            if not verificar_id(lista_pacientes, id_paciente, "paciente"):
                 continue
-  
+
             tipo = input('Digite o tipo da consulta: ')
             observacoes = input('Digite as observações da consulta: ')
             data = input('Digite a data da consulta (dd/mm/aaaa): ')
-
+            
             consulta = {
                 "id_consulta": id_consulta,
                 "id_funcionario": id_funcionario,
@@ -71,19 +53,19 @@ def cadastrar_consulta():
 
             lista_consultas.append(consulta)
             print(f'Consulta {id_consulta} cadastrada com sucesso!')
+
         except ValueError:
-            print('Digite apenas números para ID.')
+            print('Erro: Digite apenas números para IDs.')
             continue
 
         while True:
             opcao = input("Deseja adicionar outra consulta? (Sim/Não) \n").lower()
-
             if opcao == 'sim':
                 break
             elif opcao == 'não':
                 return
             else:
-                print('Opção inválida.')
+                print('Opção inválida. Responda com "Sim" ou "Não".')
 
 
 def listar_consulta():
