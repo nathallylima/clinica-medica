@@ -1,9 +1,3 @@
-from gerenciadores.gerenciador_funcionario import menu_funcionario
-from gerenciadores.gerenciador_medico import menu_medico
-from gerenciadores.gerenciador_paciente import menu_paciente
-from gerenciadores.gerenciador_consulta import menu_consulta
-from main import menu_login
-
 print('GERENCIADOR CLÍNICA MÉDICA')
 
 def gerenciar_menu():
@@ -20,14 +14,19 @@ def gerenciar_menu():
             opc = int(input('Digite o número referente à opção desejada: '))
 
             if opc == 1:
+                from gerenciadores.gerenciador_funcionario import menu_funcionario
                 menu_funcionario()
             elif opc == 2:
+                from gerenciadores.gerenciador_medico import menu_medico
                 menu_medico() 
             elif opc == 3:
+                from gerenciadores.gerenciador_paciente import menu_paciente
                 menu_paciente()
             elif opc == 4:
+                from gerenciadores.gerenciador_consulta import menu_consulta
                 menu_consulta()
             elif opc == 5:
+                from main import menu_login
                 menu_login()
             elif opc == 6:
                 print('Encerrando o programa...')
