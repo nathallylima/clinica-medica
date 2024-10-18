@@ -41,10 +41,10 @@ def cadastrar_medico():
 
 def listar_medico():
     print()
-    print("Médicos cadastrados: ")
+    print("=== Médicos Cadastrados === \n")
     
     if not lista_medicos:
-        print("Nenhum médico cadastrado.")
+        print("Nenhum médico cadastrado.\n")
     else:
         for i in lista_medicos:
             print(f'ID: {i["id"]}') 
@@ -53,7 +53,7 @@ def listar_medico():
             print(f'Email: {i["email"]}')
             print(f'CRM: {i["crm"]}') 
             print(f'Telefone: {i["telefone"]}') 
-            print()
+            print('--------------------------')
 
 
 def editar_medico():

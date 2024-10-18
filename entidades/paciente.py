@@ -44,10 +44,10 @@ def cadastrar_paciente():
 
 def listar_paciente():
     print()
-    print('Pacientes cadastrados: ')
+    print('=== Pacientes Cadastrados === \n ')
 
     if not lista_pacientes:
-        print('Nenhum paciente cadastrado.')
+        print('Nenhum paciente cadastrado.\n')
     else:
         for i in lista_pacientes:
             print(f"ID: {i['id']}")
@@ -59,7 +59,7 @@ def listar_paciente():
             print(f"Email: {i['email']}")
             print(f"Comorbidades: {i['comorbidades']}")
             print(f"Remédios: {i['remédios']}")
-            print()
+            print('--------------------------')
 
 def editar_paciente():
     listar_paciente()

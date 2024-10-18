@@ -63,10 +63,10 @@ def cadastrar_consulta():
 
 def listar_consulta():
     print()
-    print('Consultas cadastradas: ')
+    print('=== Consultas Cadastradas === \n')
 
     if not lista_consultas:
-        print('Nenhuma consulta cadastrada.')
+        print('Nenhuma consulta cadastrada.\n')
     else:
         for i in lista_consultas:
             print(f"ID: {i['id_consulta']}") 
@@ -75,7 +75,7 @@ def listar_consulta():
             print(f"ID paciente: {i['id_paciente']}")
             print(f"Tipo: {i['observações']}") 
             print(f"Data da consulta: {i['data']}")
-            print()
+            print('--------------------------')
 
 
 def editar_consulta():

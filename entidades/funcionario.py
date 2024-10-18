@@ -40,15 +40,19 @@ def cadastrar_funcionario():
 
 def listar_funcionario():
     print()
-    print('Funcionários Cadastrados:')
+    print('=== Funcionários Cadastrados === \n')
     
     if not lista_funcionarios:
-        print("Nenhum funcionário cadastrado")
+        print("Nenhum funcionário cadastrado.\n")
     else:
-        for funcionario in lista_funcionarios: 
-            print(f"ID: {funcionario['id']}, Nome: {funcionario['nome']}, "
-                  f"Cargo: {funcionario['cargo']}, Telefone: {funcionario['telefone']}, "
-                  f"Salário: {funcionario['salário']}, Escolaridade: {funcionario['escolaridade']}")
+        for i in lista_funcionarios: 
+            print(f'ID: {i["id"]}') 
+            print(f'Nome: {i["nome"]}') 
+            print(f'Cargo: {i["cargo"]}') 
+            print(f'Telefone: {i["telefone"]}') 
+            print(f'Salário: {i["salário"]}') 
+            print(f'Escolaridade: {i["escolaridade"]}') 
+            print('--------------------------') 
 
 
 def editar_funcionario():
