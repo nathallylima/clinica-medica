@@ -2,29 +2,30 @@ lista_funcionarios = []
 
 def cadastrar_funcionario():
     while True:
+        id = len(lista_funcionarios)  
+        nome = input("Digite o nome do funcionário: ")
+        cargo = input("Digite o cargo do funcionário: ")
+
         try:
-            id = len(lista_funcionarios)  
-            nome = input("Digite o nome do funcionário: ")
-            cargo = input("Digite o cargo do funcionário: ")
             telefone = int(input("Digite o telefone do funcionário: "))
             salario = float(input("Digite o salário do funcionário: "))
-            escolaridade = input("Digite a escolaridade do funcionário: ")
-
-            funcionario = {
-                "id": id,  
-                "nome": nome,
-                "cargo": cargo,
-                "telefone": telefone,
-                "salário": salario,
-                "escolaridade": escolaridade
-            }
-
-            lista_funcionarios.append(funcionario)
-            print(f"{nome} cadastrado com sucesso!")  
-
         except ValueError:
-            print('Digite um valor válido. Apenas números para telefone e salário.')
-            continue  
+            print('Erro: Digite apenas números para Telefone e Salário.')
+            continue
+
+        escolaridade = input("Digite a escolaridade do funcionário: ")
+
+        funcionario = {
+            "id": id,  
+            "nome": nome,
+            "cargo": cargo,
+            "telefone": telefone,
+            "salário": salario,
+            "escolaridade": escolaridade
+        }
+
+        lista_funcionarios.append(funcionario)
+        print(f"{nome} cadastrado com sucesso!") 
 
         while True:
             opcao = input("Deseja adicionar outro funcionário? (Sim/Não) \n").lower()
@@ -34,7 +35,7 @@ def cadastrar_funcionario():
             elif opcao == 'não':
                 return
             else:
-                print('Opção inválida.')
+                print('Opção inválida.  Responda com "Sim" ou "Não".')
 
 
 def listar_funcionario():

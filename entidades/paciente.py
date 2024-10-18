@@ -10,7 +10,7 @@ def cadastrar_paciente():
             cpf = int(input("Digite o CPF do paciente: "))
             idade = int(input("Digite a idade do paciente: "))
         except ValueError:
-            print('Digite apenas números para Telefone, CPF e Idade')
+            print('Erro: Digite apenas números para Telefone, CPF e Idade')
             continue
             
         endereco = input("Digite o endereço do paciente: ")
@@ -40,7 +40,7 @@ def cadastrar_paciente():
             elif opcao == 'não':
                 return
             else:
-                print('Opção inválida.')
+                print('Opção inválida.  Responda com "Sim" ou "Não".')
 
 def listar_paciente():
     print()

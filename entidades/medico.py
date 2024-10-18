@@ -13,7 +13,7 @@ def cadastrar_medico():
                 telefone = int(input("Digite o telefone do médico: "))
                 break
             except ValueError:
-                print("Digite apenas número para o CRM e telefone.")
+                print("Erro: Digite apenas números para o CRM e telefone.")
 
         print(f"{nome} cadastrado com sucesso")
     
@@ -36,7 +36,7 @@ def cadastrar_medico():
             elif opcao == 'não':
                 return
             else:
-                print('Opção inválida.')
+                print('Opção inválida.  Responda com "Sim" ou "Não".')
 
 
 def listar_medico():
@@ -97,7 +97,7 @@ def editar_medico():
                     continue 
                 
     print(f'Médico com ID {id_editar} não encontrado.')
-    
+
 
 def excluir_medico():
     listar_medico()
